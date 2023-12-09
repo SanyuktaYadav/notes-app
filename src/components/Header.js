@@ -1,4 +1,7 @@
-const Header = ({ handleToggleDarkMode }) => {
+import { FaRegSun } from "react-icons/fa6";
+import { FaRegMoon } from "react-icons/fa";
+
+const Header = ({ darkMode, handleToggleDarkMode }) => {
   return (
     <div className="header">
       <h1>Keep Notes</h1>
@@ -8,7 +11,7 @@ const Header = ({ handleToggleDarkMode }) => {
           handleToggleDarkMode((previousDarkMode) => !previousDarkMode)
         }
       >
-        Toggle Mode
+        {darkMode ? <FaRegSun size="1.3em" /> : <FaRegMoon size="1.3em" />}
       </button>
     </div>
   );

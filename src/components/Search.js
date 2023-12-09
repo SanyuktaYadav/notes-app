@@ -6,7 +6,7 @@ const Search = ({ handleSearchNote }) => {
       <MdSearch className="search-icon" size="1.3em" />
       <input
         type="text"
-        placeholder="type to search..."
+        placeholder="Type to search..."
         onChange={(event) => handleSearchNote(event.target.value)}
       />
     </div>
