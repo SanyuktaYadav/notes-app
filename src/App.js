@@ -17,6 +17,7 @@ const App = () => {
     if (!theme && localStorageMode) {
       setTheme(localStorageMode);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
   useEffect(() => {
