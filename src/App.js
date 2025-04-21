@@ -10,6 +10,14 @@ const App = () => {
   );
 
   const [searchText, setSearchText] = useState("");
+  const [theme, setTheme] = useState("");
+
+  const localStorageMode = localStorage.getItem("theme");
+  useEffect(() => {
+    if (!theme && localStorageMode) {
+      setTheme(localStorageMode);
+    }
+  }, [theme]);
 
   useEffect(() => {
     localStorage.setItem("notes-app-data", JSON.stringify(notes));
@@ -32,12 +40,10 @@ const App = () => {
     setNotes(newNotes);
   };
 
-  const [darkMode, setDarkMode] = useState(false);
-
   return (
-    <div className={darkMode ? "dark-mode" : ""}>
+    <div className={theme === "dark" ? "dark-mode" : ""}>
       <div className="container">
-        <Header darkMode={darkMode} handleToggleDarkMode={setDarkMode} />
+        <Header theme={theme} handleToggleTheme={setTheme} />
         <Search handleSearchNote={setSearchText} />
         <NotesList
           notes={notes.filter((note) =>
